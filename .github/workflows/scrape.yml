@@ -23,9 +23,12 @@ jobs:
 
       - name: Install uv
         uses: astral-sh/setup-uv@v5
+        with:
+          python-version: 3.12
+          enable-cache: true
 
       - name: Download latest routeviews and process
-        run: uv run --python 3.12 --script download_ribs.py
+        run: uv run --script download_ribs.py
 
       - name: Commit and push changes
         run: |
